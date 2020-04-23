@@ -1,0 +1,8 @@
+cmd  和 mysqld都要以管理员方式运行
+
+ MySQL:C:\mysql-5.7.20-win32
+    path:%MySQL%\bin
+
+
+进入到bin目录
+D:\mysql5.5\bin>mysqld --install

@@ -1,0 +1,46 @@
+1.以Windows操作系统为例，打开命令提示符，输入命令sqlplus /nolog ,进入oracle控制台，并输入 conn /as sysdba;以DBA角色进入。
+
+
+
+2.连接成功后，输入“select username from dba_users”查看用户列表
+
+
+
+3.若修改某一个用户密码， 修改用户口令 格式为：
+
+alter user 用户名 identified by 新密码；
+
+以system 为例，密码修改为 123456. 可输入
+
+alter user system identified by 123456;
+
+4.这样就修改成功了
+
+
+
+二、下面使用ALTER USER语句为scott账户解锁：
+
+     SQL> ALTER USER scott ACCOUNT UNLOCK;
+
+   再使用ALTER USER语句为scott账户设置口令，如下：
+
+    SQL> ALTER USER scott IDENTIFIED BY tiger; 
+
+   通过数据字典dba_users查看现在scott账户的状态，如下：通过查询结果可以看出，scott账户已经被成功解锁。在使用数据字典dba_users时，需要注意其字段的值是区分大小的。
+
+
+
+
+打开cmd,输入：sqlplus/nolog
+
+输入：conn username/passworld@数据库名称
+
+
+
+当然还有其他的方式：
+
+sql>conn / as syddba;即可登录oracle超级管理员用户（不需要用户和密码）。
+
+sql>conn username/password;通过输入用户名和密码的形式可以登录到普通用户。
+
+sql>conn username/password@IP地址:端口/orcl;通过本命令可以访问安装在IP地址 上面的oracle用户。注意sys用户是orcl

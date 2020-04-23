@@ -1,0 +1,9 @@
+打开Navicat Premiun在菜单中依次找到[工具]->[选项]->[其他]->[OCI]：
+
+1.将[OCI library(oci.dll)*]:改为你安装的Oracle的oci.dll。
+
+   例如Danny的是在(D:\Oracle\product\11.2.0\dbhome_1\BIN\oci.dll)
+
+2.将[SQL*Plus]:改为你安装的Oracle的SQL Plus
+
+例如Danny的是在(D:\Oracle\product\11.2.0\dbhome_1\BIN\sqlplus.exe)

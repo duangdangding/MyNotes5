@@ -1,0 +1,47 @@
+1、首先要保证该数据库用户有删除序列和新建序列的权限，存储过程中这个权限要显示赋权：
+grant create sequence to 数据库用户;
+grant drop any sequence to 数据库用户;
+
+2、存储过程中创建序列和删除序列：
+创建序列：
+execute immediate
+'create sequence 序列名' || chr(10) ||
+'minvalue 1' || chr(10) ||
+'maxvalue 999999999999999999999999999' || chr(10) ||
+'start with 1' || chr(10) ||
+'increment by 1' || chr(10) ||
+'cache 20';
+删除序列：
+execute immediate 'drop sequence 序列名'; 
+
+
+
+
+create or replace procedure trunckReport
+as
+begin
+  delete from USE_REPORT;
+
+  execute immediate 'drop sequence SEQ_USE_REPORT';
+  
+  execute immediate
+  'create sequence SEQ_USE_REPORT' || chr(10) ||
+  'minvalue 1' || chr(10) ||
+  'maxvalue 999999999999999999999999999' || chr(10) ||
+  'start with 1' || chr(10) ||
+  'increment by 1' || chr(10) ||
+  'cache 20';
+  
+end;
+
+
+
+调用
+declare
+begin
+trunckReport();
+end;
+
+
+
+

@@ -1,0 +1,23 @@
+在以管理员身份运行setup.exe之后，出现了:[INS-13001]环境不满足最低要求，通过网上搜索之后找到了解决途径
+
+首先，打开你的解压后的database文件夹，找到stage，然后cvu,找到cvu_prereq.xml文件，用记事本打开，增添下面内容
+
+<OPERATING_SYSTEM RELEASE="6.2">
+           <VERSION VALUE="3"/>
+           <ARCHITECTURE VALUE="64-bit"/>
+           <NAME VALUE="Windows 10"/>
+           <ENV_VAR_LIST>
+               <ENV_VAR NAME="PATH" MAX_LENGTH="1023" />
+           </ENV_VAR_LIST>
+</OPERATING_SYSTEM>
+1
+2
+3
+4
+5
+6
+7
+8
+这一段和上面的最主要的不同就是6.2和window10
+
+如何你安装的是32位的，则将64-bit改成32bit就可以了！改动后保存。从新点击setup.exe就不会出项这个错误提示了！
